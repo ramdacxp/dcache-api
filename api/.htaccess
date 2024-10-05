@@ -1,0 +1,12 @@
+# Rewrite all not existing files or direct to the index.php
+# https://stackoverflow.com/questions/5218213/create-a-catch-all-handler-in-php
+
+Options -MultiViews
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule . /index.php [L,NC,QSA]
+</IfModule>
