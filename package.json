@@ -1,0 +1,17 @@
+{
+  "name": "dcache-api",
+  "version": "0.0.1",
+  "description": "REST API for data cache",
+  "author": "Michael Hoser",
+  "license": "MIT",
+  "scripts": {
+    "install-php": ".\\install-php.cmd",
+    "install": "npm run install-php",
+    "start-php": ".\\bin\\php\\php.exe -S 127.0.0.1:8080 -t www -d extension_dir=bin\\php\\ext -d extension=pdo_mysql",
+    "start": "concurrently -n php -c blue,green,magenta --kill-others \"npm:start-php\""
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2",
+    "qiao-zip-cli": "^4.5.5"
+  }
+}
