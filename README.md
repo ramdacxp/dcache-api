@@ -11,4 +11,4 @@
 
 ## Start
 
-* Run `npm start`
+* Run local development server by executing `npm start`
