@@ -1,0 +1,25 @@
+### ============================================================================
+### This file contains sample HTTP requests to demonstrate the dcache REST API.
+### ============================================================================
+###
+### Requires VSCode with the "REST Client" extension installed.
+###
+
+#@server = https://dcache-api.schademarmelade.de
+@server = http://127.0.0.1:8080
+
+### ROOT
+GET {{server}}/ HTTP/1.1
+
+### GET if configured
+GET {{server}}/config
+
+### POST new configuration
+POST {{server}}/config
+
+{
+  "database": "MyDbName",
+  "prefix": "dcache_",
+  "user": "u12345",
+  "password": "SuperSecretPassword4Db!"
+}
