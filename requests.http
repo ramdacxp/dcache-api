@@ -18,8 +18,8 @@ GET {{server}}/config
 POST {{server}}/config
 
 {
-  "database": "MyDbName",
-  "prefix": "dcache_",
-  "user": "u12345",
-  "password": "SuperSecretPassword4Db!"
+  "database": "mysql:host=localhost;dbname=dcache",
+  "prefix": "dc-",
+  "user": "root",
+  "password": ""
 }
