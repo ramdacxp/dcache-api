@@ -10,7 +10,7 @@ class RestApi
   const CODE_404_NOT_FOUND = 404;
   const CODE_500_INTERNAL_SERVER_ERROR = 500;
 
-  public static function respond($code, $data, $exit = true)
+  public static function respond($code, $data, $exit = true): void
   {
     header('Content-Type: application/json');
     http_response_code($code);
@@ -18,7 +18,7 @@ class RestApi
     if ($exit) exit();
   }
 
-  public static function respondError($code, $message, $exit = true)
+  public static function respondError($code, $message, $exit = true): void
   {
     $json = [
       "kind"  => "error",
@@ -29,7 +29,7 @@ class RestApi
     if ($exit) exit();
   }
 
-  public static function getRequestUri()
+  public static function getRequestUri(): string
   {
     $request = "";
 
@@ -44,7 +44,7 @@ class RestApi
     return $request;
   }
 
-  public static function getRequestPart($idx, $lowerCase = true)
+  public static function getRequestPart($idx, $lowerCase = true): string
   {
     $result = "";
 
@@ -60,13 +60,29 @@ class RestApi
     return $result;
   }
 
-  public static function isGet()
+  public static function isGet(): bool
   {
     return $_SERVER["REQUEST_METHOD"] == "GET";
   }
 
-  public static function isPost()
+
+  public static function isPost(): bool
   {
     return $_SERVER["REQUEST_METHOD"] == "POST";
+  }
+
+  public static function validateToken($token)
+  {
+    if (!isset($token) || is_null($token) || empty($token)) {
+      RestApi::respondError(RestApi::CODE_400_BAD_REQUEST, "No token given.");
+    }
+
+    if (strlen($token) < 8) {
+      RestApi::respondError(RestApi::CODE_400_BAD_REQUEST, "Token is too short. Must be at least 8 characters long.");
+    }
+
+    if (!preg_match('/^[a-zA-Z0-9\.-]+$/', $token)) {
+      RestApi::respondError(RestApi::CODE_400_BAD_REQUEST, "Token contains invalid characters. Only letters, numbers, dots and dashes are allowed.");
+    }
   }
 }

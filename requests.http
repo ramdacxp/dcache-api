@@ -23,3 +23,6 @@ POST {{server}}/config
   "user": "root",
   "password": ""
 }
+
+### GET testdata
+GET {{server}}/data/testdata
