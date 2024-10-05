@@ -2,7 +2,8 @@
 setlocal
 set ROOT=%~dp0
 set BIN=%ROOT%bin\
-set URL=https://windows.php.net/downloads/releases/archives/php-7.4.32-Win32-vc15-x64.zip
+rem set URL=https://windows.php.net/downloads/releases/archives/php-7.4.32-Win32-vc15-x64.zip
+set URL=https://windows.php.net/downloads/releases/archives/php-8.3.11-Win32-vs16-x64.zip
 set ZIP=%BIN%\php.zip
 
 echo Root: %ROOT%
