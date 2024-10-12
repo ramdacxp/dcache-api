@@ -16,3 +16,9 @@ The API is available at: [dcache-api.schademarmelade.de](https://dcache-api.scha
 ## Start
 
 * Run local development server by executing `npm start`
+
+## Further Info
+
+* Installs PHP8 locally and uses its development webserver
+* Uses [Composer](https://getcomposer.org/download/) to install dependencies
+* Uses [Flintstone](https://github.com/fire015/flintstone) to store key/value data ([Docu](https://www.xeweb.net/flintstone/documentation/))
